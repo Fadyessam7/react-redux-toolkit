@@ -4,8 +4,8 @@ export const addItemToShoppingCart = (
   cartItems: IProduct[],
   product: IProduct
 ) => {
-  const existingProduct = cartItems.find((item) => item.id === product.id);
-  if (existingProduct) {
+  const exists = cartItems.find((item) => item.id === product.id);
+  if (exists) {
     return cartItems.map((item) =>
       item.id === product.id ? { ...item, qty: item.qty + 1 } : item
     );
