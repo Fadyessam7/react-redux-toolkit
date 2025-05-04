@@ -1,8 +1,8 @@
 import React from "react";
-import { useAppDispatch } from "../app/store";
 import Button from "./ui/Button";
-import { addItemToCartAction } from "../app/features/cart/cartSlice";
 import { IProduct } from "../interfaces";
+import { useAppDispatch } from "../app/store";
+import { addItemToCartAction } from "../app/features/cart/cartSlice";
 
 interface ProductCardProps {
   product: IProduct;
@@ -41,9 +41,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </p>
           </div>
           <Button
+            onClick={() => {
+              dispatch(addItemToCartAction(product));
+            }}
             fullWidth
-            className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
-            onClick={() => dispatch(addItemToCartAction(product))}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
